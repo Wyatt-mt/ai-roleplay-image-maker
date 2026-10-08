@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: ai-roleplay-image-maker
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: anthropic/claude-3.5-sonnet
+      - key: HUGGINGFACE_API_KEY
+        sync: false
+      - key: HUGGINGFACE_IMAGE_MODEL
+        value: black-forest-labs/FLUX.1-dev
