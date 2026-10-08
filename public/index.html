@@ -1,78 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Roleplay Image Maker</title>
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Creative AI Studio</p>
-          <h1>Roleplay + Image Maker</h1>
-        </div>
-        <div class="status-badge" id="statusBadge">Demo mode</div>
-      </header>
+# AI Roleplay + Image Creator
 
-      <main class="layout">
-        <section class="panel chat-panel">
-          <div class="panel-header">
-            <h2>Roleplay</h2>
-          </div>
+A JavaScript app for:
+- interactive roleplay chat
+- AI image generation
+- optional real AI integration with OpenRouter and Hugging Face
+- demo mode that works without API keys
 
-          <div class="persona-row">
-            <label for="personaSelect">Character</label>
-            <select id="personaSelect">
-              <option>Fantasy Mage</option>
-              <option>Cyber Detective</option>
-              <option>Cozy Friend</option>
-              <option>Space Captain</option>
-            </select>
-          </div>
+## Run locally
 
-          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+```bash
+npm install
+npm start
+```
 
-          <form id="chatForm" class="composer">
-            <textarea id="chatInput" rows="3" placeholder="Say something to your character..."></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </section>
+Then open http://localhost:3000
 
-        <aside class="panel image-panel">
-          <div class="panel-header">
-            <h2>Generate Image</h2>
-          </div>
+## API setup
 
-          <form id="imageForm" class="image-form">
-            <label>
-              Prompt
-              <textarea id="imagePrompt" rows="4" placeholder="A moonlit castle, cinematic, glowing windows"></textarea>
-            </label>
+Copy `.env.example` to `.env` and add your keys:
 
-            <label>
-              Style
-              <select id="imageStyle">
-                <option>cinematic</option>
-                <option>anime</option>
-                <option>oil painting</option>
-                <option>cyberpunk</option>
-                <option>fantasy</option>
-                <option>photorealistic</option>
-              </select>
-            </label>
+```bash
+cp .env.example .env
+```
 
-            <button type="submit">Create Image</button>
-          </form>
+Example:
 
-          <div class="image-output">
-            <img id="generatedImage" alt="Generated AI art" />
-          </div>
-        </aside>
-      </main>
-    </div>
+```env
+OPENROUTER_API_KEY=your_key_here
+OPENROUTER_MODEL=anthropic/claude-3.5-sonnet
+HUGGINGFACE_API_KEY=your_key_here
+HUGGINGFACE_IMAGE_MODEL=black-forest-labs/FLUX.1-dev
+```
 
-    <script src="/app.js"></script>
-  </body>
-</html>
+If you want a Grok-like experience, use an OpenRouter model such as:
+- x-ai/grok-beta
+- anthropic/claude-3.5-sonnet
+- openai/gpt-4o-mini
+
+## Features
+
+- roleplay with adjustable persona
+- instant AI image generation
+- polished single-page interface
+- demo fallback when no API keys are available
+
+## Deploy
+
+This app is ready for free deployment on Render or Railway.
+
