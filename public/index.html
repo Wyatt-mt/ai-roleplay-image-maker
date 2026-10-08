@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Roleplay Image Maker</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Creative AI Studio</p>
+          <h1>Roleplay + Image Maker</h1>
+        </div>
+        <div class="status-badge" id="statusBadge">Demo mode</div>
+      </header>
+
+      <main class="layout">
+        <section class="panel chat-panel">
+          <div class="panel-header">
+            <h2>Roleplay</h2>
+          </div>
+
+          <div class="persona-row">
+            <label for="personaSelect">Character</label>
+            <select id="personaSelect">
+              <option>Fantasy Mage</option>
+              <option>Cyber Detective</option>
+              <option>Cozy Friend</option>
+              <option>Space Captain</option>
+            </select>
+          </div>
+
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+
+          <form id="chatForm" class="composer">
+            <textarea id="chatInput" rows="3" placeholder="Say something to your character..."></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </section>
+
+        <aside class="panel image-panel">
+          <div class="panel-header">
+            <h2>Generate Image</h2>
+          </div>
+
+          <form id="imageForm" class="image-form">
+            <label>
+              Prompt
+              <textarea id="imagePrompt" rows="4" placeholder="A moonlit castle, cinematic, glowing windows"></textarea>
+            </label>
+
+            <label>
+              Style
+              <select id="imageStyle">
+                <option>cinematic</option>
+                <option>anime</option>
+                <option>oil painting</option>
+                <option>cyberpunk</option>
+                <option>fantasy</option>
+                <option>photorealistic</option>
+              </select>
+            </label>
+
+            <button type="submit">Create Image</button>
+          </form>
+
+          <div class="image-output">
+            <img id="generatedImage" alt="Generated AI art" />
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
